@@ -1,0 +1,11 @@
+CREATE TABLE user (
+	id INTEGER PRIMARY KEY, 
+	first_name VARCHAR(100) NOT NULL,
+	active BOOLEAN NOT NULL);
+
+CREATE TABLE email (
+	id INTEGER PRIMARY KEY, 
+	address VARCHAR(100) NOT NULL,
+	password VARCHAR (100) NOT NULL,
+	gb_capacity INTEGER NOT NULL,
+	domain VARCHAR (100) NOT NULL);
