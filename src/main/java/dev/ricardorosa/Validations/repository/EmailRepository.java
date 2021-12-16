@@ -3,14 +3,11 @@ package dev.ricardorosa.Validations.repository;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.Column;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import dev.ricardorosa.Validations.entity.Email;
-import dev.ricardorosa.Validations.entity.User;
 
 @Repository
 public interface EmailRepository extends JpaRepository<Email, Long>{

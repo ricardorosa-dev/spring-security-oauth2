@@ -112,6 +112,15 @@ public class UserController {
 				.collect(Collectors.toList());
 	}
 	
+	@GetMapping("/names-with-j")
+	public List<UserDTO> findNamesWithJ(Pageable pageable) {
+		Page<User> page = service.findByNamesWithJ(pageable);
+		
+		return page.getContent().stream()
+				.map(this::toUserDTO)
+				.collect(Collectors.toList());
+	}
+	
 	private UserDTO toUserDTO(User user) {
 		UserDTO dto = new UserDTO();
 		dto.setName(user.getName());

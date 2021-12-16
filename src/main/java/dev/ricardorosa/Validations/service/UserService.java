@@ -1,7 +1,6 @@
 package dev.ricardorosa.Validations.service;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -91,6 +90,10 @@ public class UserService {
 	
 	public List<User> findByNameEndingWith(String suffix) {
 		return repository.findByNameEndingWith(suffix);
+	}
+	
+	public Page<User> findByNamesWithJ(Pageable pageable) {
+		return repository.findNamesWithJ(pageable);
 	}
 
 }

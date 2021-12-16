@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.management.RuntimeErrorException;
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,11 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.ricardorosa.Validations.dto.EmailDTO;
-import dev.ricardorosa.Validations.dto.JoinDTO;
 import dev.ricardorosa.Validations.entity.Email;
-import dev.ricardorosa.Validations.entity.User;
-import dev.ricardorosa.Validations.exceptions.NotFoundException;
-import dev.ricardorosa.Validations.repository.EmailRepository;
 import dev.ricardorosa.Validations.service.EmailService;
 
 @RestController
