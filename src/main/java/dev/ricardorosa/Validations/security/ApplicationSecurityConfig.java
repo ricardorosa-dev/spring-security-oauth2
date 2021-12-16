@@ -1,6 +1,7 @@
 package dev.ricardorosa.Validations.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import static dev.ricardorosa.Validations.security.ApplicationUserRole.*;
 
 @Configuration
 @EnableWebSecurity
@@ -29,13 +31,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		UserDetails defaultUser = User.builder()
 				.username("user1")
 				.password(passwordEncoder.encode("123"))
-				.roles("USER")
+				.roles(USER.name())
 				.build();
 		
 		UserDetails admin = User.builder()
 				.username("admin")
 				.password(passwordEncoder.encode("123456"))
-				.roles("ADMIN")
+				.roles(ADMIN.name())
 				.build();				
 		
 		return new InMemoryUserDetailsManager(defaultUser, admin);
@@ -46,7 +48,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 			.authorizeRequests()
 				.antMatchers("/", "/h2-console/**").permitAll()
-				.antMatchers("/email").hasRole("ADMIN")
+				.antMatchers("/email").hasRole(ADMIN.name())
 			.anyRequest().authenticated()
 			.and().headers().frameOptions().sameOrigin()
 			.and().csrf().ignoringAntMatchers("/h2-console/**")			
