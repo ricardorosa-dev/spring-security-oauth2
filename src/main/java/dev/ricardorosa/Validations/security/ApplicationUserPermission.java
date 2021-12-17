@@ -2,7 +2,7 @@ package dev.ricardorosa.Validations.security;
 
 public enum ApplicationUserPermission {
 	USER_READ, USER_WRITE,
-	ADMIN_READ, ADMIN_WRITE
+	EMAIL_READ, EMAIL_WRITE
 //	USER_READ("user:read"),
 //	USER_WRITE("user:write"),
 //	ADMIN_READ("admin:read"),
